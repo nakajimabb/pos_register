@@ -42,9 +42,8 @@ type InputProps = {
   style?: CSSProperties;
 };
 
-const Input: (type: InputType) => React.FC<InputProps> =
-  (type) =>
-  ({
+const Input: (type: InputType) => React.FC<InputProps> = (type) =>
+  function InputBasic({
     id,
     name,
     value,
@@ -57,9 +56,8 @@ const Input: (type: InputType) => React.FC<InputProps> =
     onChange,
     onKeyPress,
     className,
-    children,
     style,
-  }) => {
+  }) {
     const padding = { sm: 'px-2 py-1', md: 'px-3 py-1.5', lg: 'px-4 py-2' };
     const textSize = { sm: 'text-sm', md: 'text-base', lg: 'text-lg' };
     const baseClass = 'rounded border leading-tight border-gray-300 shadow-md';

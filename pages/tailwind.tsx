@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   Button,
   Card,
@@ -15,22 +15,22 @@ import {
   Tooltip,
   ThemeProvider,
   Navbar,
-} from "../components";
-import { Brand, Size } from "../components/type";
+} from '../components';
+import { Brand, Size } from '../components/type';
 
 type TabProp = {
-  variant: "line" | "bar";
-  size: "sm" | "md";
+  variant: 'line' | 'bar';
+  size: 'sm' | 'md';
 };
 
 function Tailwind() {
-  const [value, setValue] = useState("0");
+  const [value, setValue] = useState('0');
   const [open, setOpen] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [tab, setTab] = useState<TabProp>({ variant: "line", size: "sm" });
-  const [align, setAlign] = useState<"left" | "right">("left");
+  const [tab, setTab] = useState<TabProp>({ variant: 'line', size: 'sm' });
+  const [align, setAlign] = useState<'left' | 'right'>('left');
   const [page, setPage] = useState(5);
-  const [pagerSize, setPagerSize] = useState<"sm" | "md">("md");
+  const [pagerSize, setPagerSize] = useState<'sm' | 'md'>('md');
 
   useEffect(() => {
     setInterval(() => setProgress((prev) => (prev + 1) % 100), 50);
@@ -73,10 +73,10 @@ You are in control.`;
           }
           align="right"
         >
-          <Dropdown.Item title="menu1" onClick={() => alert("menu1 Clicked")} />
-          <Dropdown.Item title="menu2" onClick={() => alert("menu2 Clicked")} />
+          <Dropdown.Item title="menu1" onClick={() => alert('menu1 Clicked')} />
+          <Dropdown.Item title="menu2" onClick={() => alert('menu2 Clicked')} />
           <Dropdown.Divider />
-          <Dropdown.Item title="menu3" onClick={() => alert("menu3 Clicked")} />
+          <Dropdown.Item title="menu3" onClick={() => alert('menu3 Clicked')} />
         </Dropdown>
       </Navbar>
       <div className="mx-auto container mt-14 p-1">
@@ -86,17 +86,17 @@ You are in control.`;
             <Flex className="items-center">
               <div className="w-20">contained</div>
               {[
-                "primary",
-                "secondary",
-                "success",
-                "danger",
-                "warning",
-                "info",
-                "light",
-                "dark",
-                "none",
-              ].map((brand) => (
-                <Button color={brand as Brand} className="m-1">
+                'primary',
+                'secondary',
+                'success',
+                'danger',
+                'warning',
+                'info',
+                'light',
+                'dark',
+                'none',
+              ].map((brand, i) => (
+                <Button key={i} color={brand as Brand} className="m-1">
                   {brand}
                 </Button>
               ))}
@@ -104,17 +104,18 @@ You are in control.`;
             <Flex className="items-center">
               <div className="w-20">outlined</div>
               {[
-                "primary",
-                "secondary",
-                "success",
-                "danger",
-                "warning",
-                "info",
-                "light",
-                "dark",
-                "none",
-              ].map((brand) => (
+                'primary',
+                'secondary',
+                'success',
+                'danger',
+                'warning',
+                'info',
+                'light',
+                'dark',
+                'none',
+              ].map((brand, i) => (
                 <Button
+                  key={i}
                   variant="outlined"
                   color={brand as Brand}
                   className="m-1"
@@ -126,34 +127,44 @@ You are in control.`;
             <Flex className="items-center">
               <div className="w-20">Text</div>
               {[
-                "primary",
-                "secondary",
-                "success",
-                "danger",
-                "warning",
-                "info",
-                "light",
-                "dark",
-                "none",
-              ].map((brand) => (
-                <Button variant="text" color={brand as Brand} className="m-1">
+                'primary',
+                'secondary',
+                'success',
+                'danger',
+                'warning',
+                'info',
+                'light',
+                'dark',
+                'none',
+              ].map((brand, i) => (
+                <Button
+                  key={i}
+                  variant="text"
+                  color={brand as Brand}
+                  className="m-1"
+                >
                   {brand}
                 </Button>
               ))}
             </Flex>
             <Flex className="items-center">
               <div className="w-20">Size</div>
-              {["xs", "sm", "md", "lg", "xl"].map((size) => (
-                <Button size={size as Size} className="mx-2 my-1">
+              {['xs', 'sm', 'md', 'lg', 'xl'].map((size, i) => (
+                <Button key={i} size={size as Size} className="mx-2 my-1">
                   Size={size}
                 </Button>
               ))}
             </Flex>
             <Flex className="items-center">
               <div className="w-20">Icon</div>
-              {["information-circle", "bell", "book-open", "trash"].map(
-                (name) => (
-                  <Button variant="icon" size="sm" className="mx-2 my-1">
+              {['information-circle', 'bell', 'book-open', 'trash'].map(
+                (name, i) => (
+                  <Button
+                    key={i}
+                    variant="icon"
+                    size="sm"
+                    className="mx-2 my-1"
+                  >
                     <Icon name={name} />
                   </Button>
                 )
@@ -179,10 +190,10 @@ You are in control.`;
                 size="md"
                 className="mb-3 sm:mb-0"
                 value={pagerSize}
-                options={["sm", "md"]}
+                options={['sm', 'md']}
                 onChange={(e) => {
                   const value = e.target.value;
-                  if (value === "sm" || value === "md") setPagerSize(value);
+                  if (value === 'sm' || value === 'md') setPagerSize(value);
                 }}
               />
             </Flex>
@@ -206,29 +217,29 @@ You are in control.`;
               <Dropdown.Item title="menu1 ABCDEFG">
                 <Dropdown.Item
                   title="sub_menu1"
-                  onClick={() => alert("sub_menu1 Clicked")}
+                  onClick={() => alert('sub_menu1 Clicked')}
                 />
                 <Dropdown.Item title="sub_menu2" />
                 <Dropdown.Divider />
                 <Dropdown.Item title="sub_menu3">
                   <Dropdown.Item
                     title="sub_sub_menu1"
-                    onClick={() => alert("sub_sub_menu1 Clicked")}
+                    onClick={() => alert('sub_sub_menu1 Clicked')}
                   />
                   <Dropdown.Item
                     title="sub_sub_menu2"
-                    onClick={() => alert("sub_sub_menu2 Clicked")}
+                    onClick={() => alert('sub_sub_menu2 Clicked')}
                   />
                 </Dropdown.Item>
               </Dropdown.Item>
               <Dropdown.Item
                 title="menu2 BBB"
-                onClick={() => alert("menu2 Clicked")}
+                onClick={() => alert('menu2 Clicked')}
               />
               <Dropdown.Divider />
               <Dropdown.Item
                 title="menu3 CCC"
-                onClick={() => alert("menu3 Clicked")}
+                onClick={() => alert('menu3 Clicked')}
               />
             </Dropdown>
           </Card.Body>
@@ -240,10 +251,10 @@ You are in control.`;
                 size="md"
                 className="mb-3 sm:mb-0"
                 value={align}
-                options={["left", "right"]}
+                options={['left', 'right']}
                 onChange={(e) => {
                   const value = e.target.value;
-                  if (value === "left" || value === "right") setAlign(value);
+                  if (value === 'left' || value === 'right') setAlign(value);
                 }}
               />
             </Flex>
@@ -254,7 +265,7 @@ You are in control.`;
           <Card.Body className="p-3 bg-gray-50">
             <Grid cols="2 md:4" rows="4 md:2" gap="3" flow="col">
               {[...Array(8)].map((_, i) => (
-                <Tooltip title={`Card-${i + 1}`}>
+                <Tooltip key={i} title={`Card-${i + 1}`}>
                   <Card className="h-20">{`Card-${i + 1}`}</Card>
                 </Tooltip>
               ))}
@@ -317,21 +328,21 @@ You are in control.`;
           </Tabs>
           <Card.Body className="bg-gray-50">
             <div className="p-4">
-              {value === "0" && (
+              {value === '0' && (
                 <p>
-                  My mistress' eyes are nothing like the sun; Coral is far more
+                  My mistress eyes are nothing like the sun; Coral is far more
                   red, than her lips red: If snow be white, why then her breasts
                   are dun; If hairs be wires, black wires grow on her head. I
-                  have seen roses damask'd, red and white, But no such roses see
+                  have seen roses damaskd, red and white, But no such roses see
                   I in her cheeks; And in some perfumes is there more delight
                   Than in the breath that from my mistress reeks. I love to hear
                   her speak, yet well I know That music hath a far more pleasing
                   sound:
                 </p>
               )}
-              {value === "1" && (
+              {value === '1' && (
                 <p>
-                  No more be griev'd at that which thou hast done: Roses have
+                  No more be grievd at that which thou hast done: Roses have
                   thorns, and silver fountains mud: Clouds and eclipses stain
                   both moon and sun, And loathsome canker lives in sweetest bud.
                   All men make faults, and even I in this, Authorizing thy
@@ -340,7 +351,7 @@ You are in control.`;
                   fault I bring in sense,-- Thy adverse party is thy advocate,--
                 </p>
               )}
-              {value === "2" && <p>AAA</p>}
+              {value === '2' && <p>AAA</p>}
             </div>
           </Card.Body>
           <Card.Footer>
@@ -353,13 +364,13 @@ You are in control.`;
                 label="-- variant --"
                 value={tab.variant}
                 options={[
-                  { value: "line", label: "line" },
-                  { value: "bar", label: "bar" },
+                  { value: 'line', label: 'line' },
+                  { value: 'bar', label: 'bar' },
                 ]}
                 onChange={(e) =>
                   setTab((prev) => ({
                     ...prev,
-                    variant: e.target.value as "line" | "bar",
+                    variant: e.target.value as 'line' | 'bar',
                   }))
                 }
               />
@@ -370,13 +381,13 @@ You are in control.`;
                 label="-- size --"
                 value={tab.size}
                 options={[
-                  { value: "sm", label: "sm" },
-                  { value: "md", label: "md" },
+                  { value: 'sm', label: 'sm' },
+                  { value: 'md', label: 'md' },
                 ]}
                 onChange={(e) =>
                   setTab((prev) => ({
                     ...prev,
-                    size: e.target.value as "sm" | "md",
+                    size: e.target.value as 'sm' | 'md',
                   }))
                 }
               />
@@ -423,9 +434,9 @@ You are in control.`;
                   className="mb-3 sm:mb-0"
                   label="-- Country --"
                   options={[
-                    { value: "1", label: "United States" },
-                    { value: "2", label: "Canada" },
-                    { value: "3", label: "Mexico" },
+                    { value: '1', label: 'United States' },
+                    { value: '2', label: 'Canada' },
+                    { value: '3', label: 'Mexico' },
                   ]}
                 />
                 <div></div>
